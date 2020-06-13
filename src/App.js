@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
 
-function App() {
+export default function App() {
+  let [isLight, setLight] = useState(false);
+  let [Year, setYear] = useState(2019)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`room ${isLight ? "lights" : "nolight"}`}>
+     <h1> Lights are = {isLight ? "on" : "off"}</h1>
+      <button onClick={() => setLight(!isLight)}> Toggle the lights</button>
+      <br />
+      <br />
+
+      <h1>You want to go to year : {Year}</h1>
+      <br />
+      <button onClick={() => setYear(Year + 1)}>Increase year</button>
+
+
     </div>
   );
 }
 
-export default App;
